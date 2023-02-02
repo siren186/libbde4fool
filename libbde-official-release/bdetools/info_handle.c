@@ -1124,6 +1124,7 @@ int info_handle_open(
 		fprintf(
 		 stdout,
 		 "Volume is locked and a password is needed to unlock it.\n\n" );
+		goto on_error;
 
 		if( bdetools_prompt_for_password(
 		     stdout,
