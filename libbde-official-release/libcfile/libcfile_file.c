@@ -1079,6 +1079,23 @@ int libcfile_file_open_wide_with_error_code(
 				return( -1 );
 			}
 		}
+        else
+        {
+            if (libcfile_internal_file_set_block_size(
+                internal_file,
+                (size_t)512,
+                error) != 1)
+            {
+                libcerror_error_set(
+                    error,
+                    LIBCERROR_ERROR_DOMAIN_RUNTIME,
+                    LIBCERROR_RUNTIME_ERROR_SET_FAILED,
+                    "%s: unable to set block size.",
+                    function);
+
+                return(-1);
+            }
+        }
 #endif /* ( WINVER >= 0x0600 ) */
 	}
 	if( libcfile_internal_file_get_size(
